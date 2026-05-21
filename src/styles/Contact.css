@@ -1,0 +1,314 @@
+/* ============================================================
+   CONTACT.CSS — Event Crew | Premium Dark Input Panel
+   ============================================================ */
+
+.contact-page {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+}
+
+/* ─── HERO HEADER BLOCK ─── */
+.contact-hero {
+  padding: 10rem 6vw 3rem;
+  background: radial-gradient(circle at 50% -20%, rgba(230, 53, 53, 0.12) 0%, transparent 60%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.contact-hero__container {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-hero__line {
+  width: 60px;
+  height: 2px;
+  background-color: #e63535;
+  margin-top: 1.25rem;
+  box-shadow: 0 0 10px rgba(230, 53, 53, 0.6);
+}
+
+/* ─── SYSTEM HUB GRID LAYOUT ─── */
+.contact-layout-wrapper {
+  padding: 2rem 6vw 8rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* ─── LEFT COLUMN: INFO CARDS ─── */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-info__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.contact-info__desc {
+  color: #666666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 440px;
+}
+
+.contact-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-detail__item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  padding: 1.25rem 1.75rem;
+  border-radius: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-detail__item:hover {
+  border-color: rgba(230, 53, 53, 0.2);
+}
+
+.contact-detail__icon {
+  font-size: 1.35rem;
+  color: #e63535;
+  width: 44px;
+  height: 44px;
+  background: rgba(230, 53, 53, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-detail__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contact-detail__label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #444444;
+  font-weight: 500;
+}
+
+.contact-detail__value {
+  font-size: 0.95rem;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.contact-detail__value:hover {
+  color: #e63535;
+}
+
+/* ─── RIGHT COLUMN: INTERACTIVE FORM ─── */
+.contact-form {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 3rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.contact-form__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.input-group {
+  width: 100%;
+}
+
+/* Form Input Field Customization */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.9rem 1.25rem;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.3s var(--ease-out);
+}
+
+.contact-form select {
+  cursor: pointer;
+}
+
+/* Force custom dynamic choice field placeholders to appear muted */
+.contact-form select:invalid,
+.contact-form select option[value=""] {
+  color: #555555;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Interactive focus glow states */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #e63535;
+  background: #111111;
+  box-shadow: 0 0 15px rgba(230, 53, 53, 0.1);
+}
+
+/* ─── HIGH-END ACTION SUBMIT BUTTON ─── */
+.contact-submit-btn {
+  background: #e63535;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease-out);
+  margin-top: 0.5rem;
+}
+
+.contact-submit-btn:hover {
+  box-shadow: 0 6px 24px rgba(230, 53, 53, 0.4);
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.submit-icon {
+  font-size: 1rem;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.contact-submit-btn:hover .submit-icon {
+  transform: translateX(3px) translateY(-1px);
+}
+
+/* Processing Spinner Module */
+.submit-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: submitSpin 0.8s linear infinite;
+}
+
+@keyframes submitSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Verification Node States */
+.form-feedback {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.form-feedback.success {
+  background: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
+  border-left: 3px solid #2ecc71;
+}
+
+.form-feedback.error {
+  background: rgba(230, 53, 53, 0.1);
+  color: #e63535;
+  border-left: 3px solid #e63535;
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE DESIGN OVERRIDES
+────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .contact-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-detail {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .contact-detail__item {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-hero {
+    padding: 8rem 1.5rem 2rem;
+  }
+
+  .contact-layout-wrapper {
+    padding: 1rem 1.5rem 5rem;
+  }
+
+  .contact-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
