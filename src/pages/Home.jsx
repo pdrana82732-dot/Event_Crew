@@ -56,16 +56,24 @@ const SERVICES = [
 
 const GALLERY = [
   {
-    src: 'https://res.cloudinary.com/dodouazko/image/upload/q_auto/f_auto/v1777835256/event_3_x9xaeq.jpg',
+    src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=85',
+    tag: 'Conferences',
+    label: 'Large-scale event production',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=85',
     tag: 'Concerts',
+    label: 'Live music & stage shows',
   },
   {
-    src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80',
-    tag: 'Live Events',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=85',
     tag: 'Corporate',
+    label: 'Brand activations & summits',
+  },
+  {
+    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=85',
+    tag: 'Weddings',
+    label: 'Luxury private celebrations',
   },
 ]
 
@@ -124,18 +132,12 @@ function Arrow({ size = 14 }) {
   )
 }
 
-// ─── Chevron icon (for expand toggle) ────────────────────────────
+// ─── Chevron icon ────────────────────────────────────────────────
 function Chevron({ size = 14, open }) {
   return (
     <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      width={size} height={size} viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
       style={{
         transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
         transition: 'transform 0.35s ease',
@@ -147,7 +149,7 @@ function Chevron({ size = 14, open }) {
   )
 }
 
-// ─── Service Card with accordion expand ──────────────────────────
+// ─── Service Card ─────────────────────────────────────────────────
 function ServiceCard({ s, index, isOpen, onToggle }) {
   const contentRef = useRef(null)
   const [height, setHeight] = useState(0)
@@ -158,8 +160,6 @@ function ServiceCard({ s, index, isOpen, onToggle }) {
   }, [isOpen])
 
   return (
-    // alignSelf: 'start' is the critical fix — prevents CSS grid from
-    // stretching ALL cards to match the tallest one when one expands.
     <div
       className={`service-card fade-up d${index + 1}${isOpen ? ' service-card--open' : ''}`}
       style={{ alignSelf: 'start' }}
@@ -169,19 +169,11 @@ function ServiceCard({ s, index, isOpen, onToggle }) {
       <div className="service-card__title">{s.title}</div>
       <p className="service-card__desc">{s.desc}</p>
 
-      {/* Animated expand panel */}
-      <div
-        style={{
-          height: `${height}px`,
-          overflow: 'hidden',
-          transition: 'height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-        }}
-      >
+      <div style={{ height: `${height}px`, overflow: 'hidden', transition: 'height 0.4s cubic-bezier(0.4, 0, 0.2, 1)' }}>
         <div ref={contentRef}>
           <ul className="service-card__points">
             {s.points.map((pt, i) => (
               <li key={i} className="service-card__point">
-                {/* Solid bullet using • character — always visible */}
                 <span className="service-card__point-bullet">•</span>
                 {pt}
               </li>
@@ -190,17 +182,35 @@ function ServiceCard({ s, index, isOpen, onToggle }) {
         </div>
       </div>
 
-      {/* Explore / Close toggle */}
       <span
         className="service-card__link"
-        onClick={(e) => {
-          e.stopPropagation()
-          onToggle()
-        }}
+        onClick={(e) => { e.stopPropagation(); onToggle() }}
         style={{ marginTop: '0.75rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
       >
         {isOpen ? 'Close' : 'Explore'} <Chevron size={11} open={isOpen} />
       </span>
+    </div>
+  )
+}
+
+// ─── Gallery Card ─────────────────────────────────────────────────
+function GalleryCard({ img, index, navigate }) {
+  return (
+    <div
+      className={`gallery-card fade-up d${index + 1}`}
+      onClick={() => navigate('/gallery')}
+    >
+      <div className="gallery-card__img-wrap">
+        <img src={img.src} alt={img.tag} loading="lazy" />
+      </div>
+      <div className="gallery-card__overlay">
+        <div className="gallery-card__content">
+          <span className="gallery-card__tag">{img.tag}</span>
+          <p className="gallery-card__label">{img.label}</p>
+          <span className="gallery-card__cta">View Work <Arrow size={11} /></span>
+        </div>
+      </div>
+      <div className="gallery-card__index">0{index + 1}</div>
     </div>
   )
 }
@@ -210,7 +220,7 @@ export default function Home() {
   const navigate = useNavigate()
   const [statsOn, setStatsOn] = useState(false)
   const statsRef = useRef(null)
-  const [openCard, setOpenCard] = useState(null) // index of open service card
+  const [openCard, setOpenCard] = useState(null)
 
   useFadeUp()
 
@@ -225,33 +235,29 @@ export default function Home() {
   }, [])
 
   const handleCardToggle = (index) => {
-    // If same card clicked again → close it; else open the new one (closes previous)
     setOpenCard((prev) => (prev === index ? null : index))
   }
 
   return (
     <main className="home">
 
-      {/* ══════════════════════════════════════
-          HERO
-      ══════════════════════════════════════ */}
+      {/* ══════════════ HERO ══════════════ */}
       <section className="hero">
         <div className="hero__atmo" />
         <div className="hero__atmo2" />
         <div className="hero__grid" />
 
-        {/* ── Left: Text ── */}
         <div className="hero__text">
-
           <div className="hero__eyebrow fade-up">
             <span className="hero__eyebrow-line" />
             Event Management &amp; Production
           </div>
 
+          {/* ── italic removed: was <em>Work,</em> and ghost span ── */}
           <h1 className="hero__title fade-up d1">
             Bonded by<br />
-            <em>Work,</em><br />
-            <span className="ghost">Growing Like</span><br />
+            <span className="hero__title--accent">Work,</span><br />
+            <span className="hero__title--ghost">Growing Like</span><br />
             A Family.
           </h1>
 
@@ -276,7 +282,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* ── Right: Image ── */}
         <div className="hero__visual fade-up d2">
           <div className="hero__img-wrap">
             <div className="hero__frame-back" />
@@ -300,22 +305,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Divider ── */}
       <div className="section-divider">
         <span className="section-divider__dot" />
         <span className="section-divider__dot" style={{ opacity: 0.4 }} />
         <span className="section-divider__dot" style={{ opacity: 0.2 }} />
       </div>
 
-      {/* ══════════════════════════════════════
-          SERVICES
-      ══════════════════════════════════════ */}
+      {/* ══════════════ SERVICES ══════════════ */}
       <section className="section">
         <div className="services-header">
           <div>
             <div className="section-eyebrow fade-up">What We Do</div>
+            {/* ── italic removed: was <em>Capabilities</em> ── */}
             <h2 className="section-title fade-up d1">
-              Comprehensive<br /><em>Capabilities</em>
+              Comprehensive<br />
+              <span className="section-title--accent">Capabilities</span>
             </h2>
           </div>
           <p className="services-sub fade-up d2">
@@ -336,44 +340,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Divider ── */}
       <div className="section-divider">
         <span className="section-divider__dot" />
       </div>
 
-      {/* ══════════════════════════════════════
-          GALLERY
-      ══════════════════════════════════════ */}
+      {/* ══════════════ GALLERY ══════════════ */}
       <section className="section">
         <div className="gallery-header">
           <div>
             <div className="section-eyebrow fade-up">Our Work</div>
-            <h2 className="section-title fade-up d1">Featured <em>Portfolio</em></h2>
+            {/* ── italic removed: was <em>Portfolio</em> ── */}
+            <h2 className="section-title fade-up d1">
+              Featured <span className="section-title--accent">Portfolio</span>
+            </h2>
           </div>
           <button className="btn-outline fade-up d2" onClick={() => navigate('/gallery')}>
             Full Gallery <Arrow />
           </button>
         </div>
 
+        {/* New 4-card professional gallery grid */}
         <div className="gallery-grid">
           {GALLERY.map((img, i) => (
-            <div
-              key={i}
-              className={`gallery-item fade-up d${i + 1}`}
-              onClick={() => navigate('/gallery')}
-            >
-              <img src={img.src} alt={img.tag} loading="lazy" />
-              <span className="gallery-item__tag">{img.tag}</span>
-              <span className="gallery-item__view">View <Arrow size={10} /></span>
-            </div>
+            <GalleryCard key={i} img={img} index={i} navigate={navigate} />
           ))}
         </div>
       </section>
 
-      {/* ══════════════════════════════════════
-          TESTIMONIAL
-      ══════════════════════════════════════ */}
+      {/* ══════════════ TESTIMONIAL ══════════════ */}
       <section className="testimonial">
+        {/* ── italic removed from t-quote, kept font-style normal via CSS ── */}
         <blockquote className="t-quote fade-up">
           At Event Crew, our strength lies in our unity. We turn every gathering
           into a legacy — every moment into a memory that endures.

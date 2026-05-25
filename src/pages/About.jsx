@@ -37,7 +37,6 @@ export default function About() {
     const statsRef = useRef(null)
 
     useEffect(() => {
-        // Fade-up observer
         const fadeObserver = new IntersectionObserver(
             (entries) => entries.forEach((e) => {
                 if (e.isIntersecting) e.target.classList.add('show')
@@ -46,7 +45,6 @@ export default function About() {
         )
         document.querySelectorAll('.fade-up').forEach((el) => fadeObserver.observe(el))
 
-        // Stats counter trigger
         const statsObserver = new IntersectionObserver(
             ([e]) => { if (e.isIntersecting) setStatsActive(true) },
             { threshold: 0.5 }
@@ -63,10 +61,9 @@ export default function About() {
         <main className="about-page">
 
             {/* ══════════════════════════
-          CINEMATIC HERO
-      ══════════════════════════ */}
+                HERO
+            ══════════════════════════ */}
             <section className="about-hero">
-                {/* Atmospheric layers */}
                 <div className="about-hero__atmo" />
                 <div className="about-hero__atmo2" />
                 <div className="about-hero__grid" />
@@ -74,7 +71,6 @@ export default function About() {
 
                 <div className="about-hero__inner">
 
-                    {/* Left vertical label */}
                     <div className="about-hero__side-label">
                         <span className="about-hero__side-line" />
                         <span>Event Crew — Est. 2022</span>
@@ -86,9 +82,10 @@ export default function About() {
                             Who We Are
                         </div>
 
+                        {/* italic removed: was <em>Built Like</em> */}
                         <h1 className="about-hero__title fade-up delay-1">
                             Driven by Passion,<br />
-                            <em>Built Like</em><br />
+                            <span className="text-accent">Built Like</span><br />
                             <span className="title-ghost">A Family.</span>
                         </h1>
 
@@ -105,7 +102,6 @@ export default function About() {
                         </p>
                     </div>
 
-                    {/* Floating badge */}
                     <div className="about-hero__badge fade-up delay-4">
                         <span className="badge-ring" />
                         <span className="badge-inner">
@@ -115,17 +111,15 @@ export default function About() {
                     </div>
 
                 </div>
-
             </section>
 
 
             {/* ══════════════════════════
-          STORY SECTION
-      ══════════════════════════ */}
+                STORY
+            ══════════════════════════ */}
             <section className="about-story">
                 <div className="about-story__grid">
 
-                    {/* Image column */}
                     <div className="about-story__visual fade-up">
                         <div className="story-img-wrap">
                             <div className="story-img-frame-back" />
@@ -140,7 +134,6 @@ export default function About() {
                             </div>
                             <div className="story-corner story-corner--tl" />
                             <div className="story-corner story-corner--br" />
-                            {/* Floating tag */}
                             <div className="story-img-tag">
                                 <span className="story-tag-dot" />
                                 <span>Since 2022</span>
@@ -148,15 +141,18 @@ export default function About() {
                         </div>
                     </div>
 
-                    {/* Text column */}
                     <div className="about-story__text">
                         <div className="section-eyebrow fade-up">
                             <span className="eyebrow-dash" />
                             Our Story
                         </div>
+
+                        {/* italic removed: was <em>Experiences</em> */}
                         <h2 className="section-heading fade-up delay-1">
-                            Engineering<br />Exceptional <em>Experiences</em>
+                            Engineering<br />
+                            Exceptional <span className="text-accent">Experiences</span>
                         </h2>
+
                         <p className="story-body fade-up delay-2">
                             Founded with a bold vision to disrupt traditional event management frameworks,
                             Event Crew operates on a deeply collaborative mindset. We bridge premium technical
@@ -168,7 +164,7 @@ export default function About() {
                             Every campaign is an opportunity to craft an unforgettable milestone.
                         </p>
 
-                        {/* Inline pull-quote */}
+                        {/* italic removed from blockquote */}
                         <blockquote className="story-quote fade-up delay-4">
                             <span className="story-quote__mark">"</span>
                             Every event is a blank canvas. We bring the colour, the structure, and the soul.
@@ -180,8 +176,8 @@ export default function About() {
 
 
             {/* ══════════════════════════
-          STATS BAR
-      ══════════════════════════ */}
+                STATS BAR
+            ══════════════════════════ */}
             <div className="about-stats-bar fade-up" ref={statsRef}>
                 <StatCounter value="2+" label="Years of Excellence" active={statsActive} />
                 <div className="stats-bar__divider" />
@@ -194,16 +190,17 @@ export default function About() {
 
 
             {/* ══════════════════════════
-          VALUE PILLARS
-      ══════════════════════════ */}
+                VALUE PILLARS
+            ══════════════════════════ */}
             <section className="about-pillars">
                 <div className="about-pillars__header">
                     <div className="section-eyebrow fade-up">
                         <span className="eyebrow-dash" />
                         What We Stand For
                     </div>
+                    {/* italic removed: was <em>Our Craft</em> */}
                     <h2 className="section-heading fade-up delay-1">
-                        The Pillars of <em>Our Craft</em>
+                        The Pillars of <span className="text-accent">Our Craft</span>
                     </h2>
                 </div>
 
@@ -274,16 +271,17 @@ export default function About() {
 
 
             {/* ══════════════════════════
-          MILESTONES CARD GRID
-      ══════════════════════════ */}
+                MILESTONES
+            ══════════════════════════ */}
             <section className="about-timeline">
                 <div className="timeline-header">
                     <div className="section-eyebrow fade-up">
                         <span className="eyebrow-dash" />
                         Our Journey
                     </div>
+                    {/* italic removed: was <em>Have Crossed</em> */}
                     <h2 className="section-heading fade-up delay-1">
-                        Milestones We <em>Have Crossed</em>
+                        Milestones We <span className="text-accent">Have Crossed</span>
                     </h2>
                 </div>
 
@@ -319,28 +317,13 @@ export default function About() {
                         },
                     ].map((item, i) => (
                         <div className={`milestone-card fade-up delay-${i + 1}`} key={item.year}>
-                            {/* Top accent line animates on hover */}
                             <div className="milestone-card__topbar" />
-
-                            {/* Year — large, bold, unmissable */}
                             <div className="milestone-card__year">{item.year}</div>
-
-                            {/* Index number — ghost watermark */}
                             <div className="milestone-card__ghost">{item.index}</div>
-
-                            {/* Tag pill */}
                             <span className="milestone-card__tag">{item.tag}</span>
-
-                            {/* Title */}
                             <h4 className="milestone-card__title">{item.title}</h4>
-
-                            {/* Red divider */}
                             <div className="milestone-card__rule" />
-
-                            {/* Description */}
                             <p className="milestone-card__desc">{item.desc}</p>
-
-                            {/* Corner accents */}
                             <div className="milestone-card__corner milestone-card__corner--tl" />
                             <div className="milestone-card__corner milestone-card__corner--br" />
                         </div>
@@ -350,8 +333,8 @@ export default function About() {
 
 
             {/* ══════════════════════════
-          CLOSING CTA BAND
-      ══════════════════════════ */}
+                CTA
+            ══════════════════════════ */}
             <section className="about-cta">
                 <div className="about-cta__glow" />
                 <div className="about-cta__inner fade-up">
@@ -360,8 +343,9 @@ export default function About() {
                         Ready to Begin
                         <span className="eyebrow-dash" />
                     </div>
+                    {/* italic removed: was <em>Extraordinary</em> */}
                     <h2 className="about-cta__title">
-                        Let's Build Something <em>Extraordinary</em>
+                        Let's Build Something <span className="text-accent">Extraordinary</span>
                     </h2>
                     <p className="about-cta__sub">
                         Your next event deserves more than management — it deserves a crew that treats it like family.

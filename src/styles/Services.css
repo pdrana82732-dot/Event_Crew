@@ -166,8 +166,9 @@
   margin-bottom: 2rem;
 }
 
-.services-hero__title em {
-  font-style: italic;
+.services-hero__title em,
+.services-hero__title--red {
+  font-style: normal;
   color: var(--red-accent);
   font-weight: 400;
 }
@@ -488,7 +489,7 @@
 }
 
 .services-cta__title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--red-accent);
 }
 
@@ -647,7 +648,7 @@
 }
 
 .modal__title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--red-accent);
 }
 
@@ -789,7 +790,6 @@
 .modal__note {
   font-family: var(--font-display);
   font-size: 0.85rem;
-  font-style: italic;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.25);
   text-align: center;

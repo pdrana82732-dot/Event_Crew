@@ -166,8 +166,8 @@
   margin-bottom: 2rem;
 }
 
-.gallery-hero__title em {
-  font-style: italic;
+.gallery-hero__title--red {
+  font-style: normal;
   color: var(--red-accent);
   font-weight: 400;
 }
@@ -401,7 +401,6 @@
   overflow: hidden;
   cursor: pointer;
   background: var(--bg-surface);
-  /* default: 4 cols × 4 rows */
   grid-column: span 4;
   grid-row: span 4;
 }
@@ -409,13 +408,11 @@
 .gallery-item--tall {
   grid-column: span 4;
   grid-row: span 6;
-  /* taller */
 }
 
 .gallery-item--wide {
   grid-column: span 8;
   grid-row: span 4;
-  /* wider */
 }
 
 /* ── Image ── */
@@ -655,8 +652,8 @@
   margin-bottom: 2rem;
 }
 
-.gallery-cta__title em {
-  font-style: italic;
+.gallery-cta__title--red {
+  font-style: normal;
   color: var(--red-accent);
 }
 
@@ -817,7 +814,6 @@
   font-size: 1.1rem;
   font-weight: 400;
   color: var(--text-title);
-  font-style: italic;
 }
 
 .lightbox__counter {
@@ -935,14 +931,12 @@
 
   .lightbox__content {
     padding: 0 56px;
-    /* room for arrows on sides */
   }
 }
 
 /* ── Tablet (≤900px) ── */
 @media (max-width: 900px) {
 
-  /* Hero */
   .gallery-hero {
     min-height: 60vh;
     padding: calc(var(--nav-h, 72px) + 3rem) 6vw 4rem;
@@ -956,14 +950,12 @@
     font-size: clamp(2.6rem, 8vw, 4.5rem);
   }
 
-  /* Grid: 2 equal columns, fixed pixel height per row */
   .gallery-masonry {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 220px;
     gap: 4px;
   }
 
-  /* All items: 1 col × 1 row — no span tricks on tablet */
   .gallery-item,
   .gallery-item--tall,
   .gallery-item--wide {
@@ -971,7 +963,6 @@
     grid-row: span 1;
   }
 
-  /* Filter bar: hide count, reduce padding */
   .gallery-filter__count {
     display: none;
   }
@@ -980,7 +971,6 @@
     gap: 1rem;
   }
 
-  /* Lightbox: stack nav inside the image box */
   .lightbox {
     padding: 1rem;
   }
@@ -1024,7 +1014,6 @@
 /* ── Mobile (≤600px) ── */
 @media (max-width: 600px) {
 
-  /* Hero: tighter */
   .gallery-hero {
     min-height: auto;
     padding: calc(var(--nav-h, 72px) + 2rem) 5vw 3rem;
@@ -1053,10 +1042,8 @@
     font-size: 1.6rem;
   }
 
-  /* Filter bar: scrollable on mobile, don't wrap */
   .gallery-filter {
     position: static;
-    /* don't sticky on mobile — wastes screen */
   }
 
   .gallery-filter__inner {
@@ -1096,7 +1083,6 @@
     border-right: 1px solid var(--border-subtle);
   }
 
-  /* Remove bottom-underline active style, use background instead */
   .gallery-filter__tab--active {
     background: rgba(230, 53, 53, 0.1);
     color: var(--red-accent);
@@ -1106,7 +1092,6 @@
     display: none;
   }
 
-  /* Grid: single column on very small phones, 2-col on normal phones */
   .gallery-masonry {
     grid-template-columns: 1fr 1fr;
     grid-auto-rows: 180px;
@@ -1117,7 +1102,6 @@
     padding: 2rem 3vw 4rem;
   }
 
-  /* Hover effects don't work on touch — show tag always */
   .gallery-item__tag {
     opacity: 1;
     transform: none;
@@ -1125,7 +1109,6 @@
     padding: 0 0.6rem 0.6rem;
   }
 
-  /* Lightbox: fullscreen on mobile */
   .lightbox {
     padding: 0;
   }
@@ -1163,7 +1146,6 @@
     font-size: 0.9rem;
   }
 
-  /* Nav arrows: fixed to bottom corners */
   .lightbox__nav {
     position: fixed;
     bottom: 70px;
@@ -1180,7 +1162,6 @@
     right: 12px;
   }
 
-  /* Close: top-right corner */
   .lightbox__close {
     position: fixed;
     top: 12px;
@@ -1191,12 +1172,10 @@
     background: rgba(10, 10, 10, 0.8);
   }
 
-  /* Hide decorative corners on mobile */
   .lightbox__corner {
     display: none;
   }
 
-  /* CTA band */
   .gallery-cta {
     padding: 4rem 5vw;
   }

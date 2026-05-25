@@ -95,7 +95,7 @@ function ContactModal({ open, onClose }) {
           Get In Touch
         </div>
         <h2 className="modal__title">
-          Let's Build Something <em>Extraordinary</em>
+          Let's Build Something Extraordinary
         </h2>
         <p className="modal__sub">
           Reach out through any of the channels below — we respond within 24 hours.
@@ -213,7 +213,7 @@ export default function Services() {
 
           <h1 className="services-hero__title fade-up delay-1">
             Comprehensive<br />
-            <em>Capabilities</em>
+            <span className="services-hero__title--red">Capabilities</span>
           </h1>
 
           <div className="services-hero__divider fade-up delay-2">
@@ -297,7 +297,7 @@ export default function Services() {
             <span className="eyebrow-dash" />
           </div>
           <h2 className="services-cta__title">
-            Ready to Build <em>Something Great?</em>
+            Ready to Build Something Great?
           </h2>
           <p className="services-cta__sub">
             Let's talk about your next project. We'd love to engineer your milestone story.

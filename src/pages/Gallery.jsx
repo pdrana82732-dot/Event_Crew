@@ -131,7 +131,6 @@ export default function Gallery() {
     setAnimating(true)
     const t = setTimeout(() => {
       setAnimating(false)
-      // Re-observe new items
       const observer = new IntersectionObserver(
         (entries) => entries.forEach((e) => {
           if (e.isIntersecting) e.target.classList.add('show')
@@ -182,7 +181,7 @@ export default function Gallery() {
 
           <h1 className="gallery-hero__title fade-up delay-1">
             Events We've<br />
-            <em>Brought to Life</em>
+            <span className="gallery-hero__title--red">Brought to Life</span>
           </h1>
 
           <div className="gallery-hero__divider fade-up delay-2">
@@ -306,7 +305,8 @@ export default function Gallery() {
             <span className="eyebrow-dash" />
           </div>
           <h2 className="gallery-cta__title">
-            Your Event Deserves <em>This Treatment</em>
+            Your Event Deserves{' '}
+            <span className="gallery-cta__title--red">This Treatment</span>
           </h2>
           <a href="/contact" className="gallery-cta__btn">
             Work With Us
