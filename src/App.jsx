@@ -9,6 +9,7 @@ import Services from './pages/Services'
 import Gallery from './pages/Gallery'
 import Family from './pages/Family'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 // ─── TINY INLINE HELP COMPONENT ───
 function ScrollToTopInsideApp() {
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/family" element={<Family />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
