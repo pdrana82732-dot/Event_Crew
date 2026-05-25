@@ -106,13 +106,13 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="contact-detail__item">
+              {/* <div className="contact-detail__item">
                 <div className="contact-detail__icon"><FiMapPin /></div>
                 <div className="contact-detail__text">
                   <span className="contact-detail__label">Headquarters</span>
                   <span className="contact-detail__value">Chandigarh University</span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
