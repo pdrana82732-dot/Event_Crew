@@ -2,7 +2,7 @@
    Footer.css — Event Crew Premium Footer
 ═══════════════════════════════════════════════════════════════ */
 
-/* ── Variables (inherit from Home.css :root, or re-declare safely) ── */
+/* ── Variables ── */
 :root {
   --bg-main: #0a0a0a;
   --bg-surface: #121212;
@@ -17,7 +17,6 @@
   --font-body: 'Urbanist', sans-serif;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    FOOTER WRAPPER
 ═══════════════════════════════════════════════════════════════ */
@@ -29,7 +28,6 @@
   padding: 0 4vw 0;
 }
 
-/* Red atmospheric glow top-left */
 .footer__glow {
   position: absolute;
   top: -60px;
@@ -54,7 +52,6 @@
     transform: scale(1.08);
   }
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    TOP DIVIDER RULE
@@ -83,7 +80,6 @@
   white-space: nowrap;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    FADE-UP ANIMATION
 ═══════════════════════════════════════════════════════════════ */
@@ -111,7 +107,6 @@
   transition-delay: 0.24s;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    MAIN BODY ROW
 ═══════════════════════════════════════════════════════════════ */
@@ -124,7 +119,6 @@
   align-items: start;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    BRAND COLUMN
 ═══════════════════════════════════════════════════════════════ */
@@ -135,7 +129,6 @@
   gap: 1.4rem;
 }
 
-/* Logo */
 .footer__logo {
   display: inline-flex;
   align-items: center;
@@ -165,7 +158,6 @@
   z-index: 1;
 }
 
-/* Pulsing ring on logo icon */
 .footer-logo-pulse {
   position: absolute;
   inset: -1px;
@@ -201,7 +193,6 @@
   color: var(--red-accent);
 }
 
-/* Tagline */
 .footer__tagline {
   font-size: 0.9rem;
   line-height: 1.8;
@@ -209,7 +200,6 @@
   max-width: 300px;
 }
 
-/* Social buttons */
 .footer__socials {
   display: flex;
   gap: 0.75rem;
@@ -253,7 +243,6 @@
   position: relative;
   z-index: 1;
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    NAV COLUMNS
@@ -300,7 +289,6 @@
   gap: 0.65rem;
 }
 
-/* Nav links */
 .footer__link {
   display: flex;
   align-items: center;
@@ -330,14 +318,12 @@
   transform: none;
 }
 
-
 /* ── Contact column ── */
 .footer__col--contact {
   display: flex;
   flex-direction: column;
 }
 
-/* Email card */
 .footer__mail-card {
   display: flex;
   align-items: flex-start;
@@ -398,14 +384,15 @@
   opacity: 1;
 }
 
-/* CTA button */
+/* CTA button — now a <button> element */
 .footer__cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: var(--red-accent);
   color: #fff;
-  text-decoration: none;
+  border: none;
+  cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.72rem;
   font-weight: 700;
@@ -429,7 +416,6 @@
 .footer__cta-btn:hover svg {
   transform: translate(2px, -2px);
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    BOTTOM BAR
@@ -485,7 +471,6 @@
   opacity: 0.4;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════════════════ */
@@ -533,5 +518,306 @@
 
   .footer__col--contact {
     grid-column: span 1;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   GET IN TOUCH MODAL
+═══════════════════════════════════════════════════════════════ */
+
+.git-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: gitFadeIn 0.25s ease;
+}
+
+@keyframes gitFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.git-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(16px);
+  cursor: pointer;
+}
+
+/* Box */
+.git-modal__box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.75),
+    0 0 0 1px rgba(230, 53, 53, 0.08);
+  animation: gitSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes gitSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Red shimmer top bar — matches site accent */
+.git-modal__topbar {
+  height: 3px;
+  background: linear-gradient(90deg, #e63535, #ff6b6b, #e63535);
+  background-size: 200% 100%;
+  animation: barShimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes barShimmer {
+
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+}
+
+/* Close */
+.git-modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.40);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.25s;
+}
+
+.git-modal__close:hover {
+  background: rgba(230, 53, 53, 0.12);
+  border-color: rgba(230, 53, 53, 0.35);
+  color: var(--red-accent);
+  transform: rotate(90deg);
+}
+
+/* Header */
+.git-modal__header {
+  padding: 1.75rem 1.75rem 0;
+}
+
+.git-modal__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--red-accent);
+  margin-bottom: 0.5rem;
+}
+
+.git-modal__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-title);
+  line-height: 1.1;
+  margin: 0 0 0.6rem;
+}
+
+.git-modal__desc {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--text-body);
+  margin: 0;
+}
+
+/* Link cards */
+.git-modal__links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 1.5rem 1.75rem;
+}
+
+.git-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-decoration: none;
+  transition:
+    background 0.25s,
+    border-color 0.25s,
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bottom sweep — same as footer__mail-card */
+.git-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.git-link:hover {
+  transform: translateY(-2px);
+}
+
+.git-link:hover::before {
+  transform: scaleX(1);
+}
+
+/* Email */
+.git-link--email:hover {
+  background: rgba(230, 53, 53, 0.05);
+  border-color: rgba(230, 53, 53, 0.22);
+}
+
+.git-link--email::before {
+  background: var(--red-accent);
+}
+
+/* LinkedIn */
+.git-link--linkedin:hover {
+  background: rgba(10, 102, 194, 0.07);
+  border-color: rgba(10, 102, 194, 0.25);
+}
+
+.git-link--linkedin::before {
+  background: #0a66c2;
+}
+
+/* Icon */
+.git-link__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  clip-path: polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%);
+}
+
+.git-link:hover .git-link__icon {
+  transform: scale(1.08);
+}
+
+.git-link__icon--email {
+  background: rgba(230, 53, 53, 0.10);
+  color: var(--red-accent);
+}
+
+.git-link__icon--linkedin {
+  background: rgba(10, 102, 194, 0.12);
+  color: #0a66c2;
+}
+
+/* Text */
+.git-link__body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.git-link__label {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.git-link__value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-title);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* External arrow */
+.git-link__ext {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.15);
+  flex-shrink: 0;
+  transition: color 0.2s, transform 0.25s;
+}
+
+.git-link:hover .git-link__ext {
+  color: rgba(255, 255, 255, 0.55);
+  transform: translate(2px, -2px);
+}
+
+/* Esc hint */
+.git-modal__esc {
+  text-align: center;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.14);
+  padding: 0 1.75rem 1.25rem;
+  margin: 0;
+}
+
+.git-modal__esc kbd {
+  display: inline-block;
+  padding: 1px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  font-family: inherit;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .git-modal__title {
+    font-size: 1.6rem;
+  }
+
+  .git-link__value {
+    font-size: 0.80rem;
   }
 }

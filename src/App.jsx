@@ -10,6 +10,8 @@ import Gallery from './pages/Gallery'
 import Family from './pages/Family'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 
 // ─── TINY INLINE HELP COMPONENT ───
 function ScrollToTopInsideApp() {
@@ -38,6 +40,8 @@ export default function App() {
         <Route path="/family" element={<Family />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
 
       <Footer />

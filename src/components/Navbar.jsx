@@ -48,7 +48,7 @@ export default function Navbar() {
               <div className="logo-pulse" />
             </div>
             <span className="navbar__logo-text">
-              Event<em>Crew</em>
+              Event<em> Crew</em>
             </span>
           </Link>
 
@@ -131,8 +131,8 @@ export default function Navbar() {
           </nav>
 
           <div className="mobile-menu__footer">
-            <p>© 2026 EventCrew. All rights reserved.</p>
-          </div>
+            <p>© 2026 Event Crew. All rights reserved.</p>
+          </div> 
         </div>
       </div>
     </>
